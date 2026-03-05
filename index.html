@@ -1,0 +1,2055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RRWPCJ2DSB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RRWPCJ2DSB');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attract Unity Coffee</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%231a0e08'/><text y='72' x='50' text-anchor='middle' font-size='62'>☕</text></svg>">
+<style>
+:root {
+  --gold: #c8a97e;
+  --gold-light: #e8c99e;
+  --dark: #0e1a14;
+  --dark2: #162310;
+  --dark3: #1e3018;
+  --cream: #f0ede6;
+  --red: #2d5a3d;
+  --red2: #3d7a52;
+  --sidebar-w: 220px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--dark);
+  color: var(--cream);
+  display: flex;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ─── SIDEBAR ─── */
+.sidebar {
+  width: var(--sidebar-w);
+  min-height: 100vh;
+  background: linear-gradient(180deg, #060e08 0%, #0e1a14 50%, #162310 100%);
+  border-right: 1px solid rgba(200,169,126,0.2);
+  position: fixed;
+  left: 0; top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0 30px;
+  z-index: 100;
+  box-shadow: 4px 0 30px rgba(0,0,0,0.6);
+}
+
+.sidebar-logo {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 0 15px;
+}
+
+.sidebar-logo .cup-icon {
+  font-size: 40px;
+  display: block;
+  margin-bottom: 10px;
+  animation: steam 3s ease-in-out infinite;
+}
+
+@keyframes steam {
+  0%,100% { transform: translateY(0); filter: drop-shadow(0 0 6px rgba(200,169,126,0.4)); }
+  50% { transform: translateY(-5px); filter: drop-shadow(0 0 12px rgba(200,169,126,0.8)); }
+}
+
+.sidebar-logo h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  color: var(--gold);
+  letter-spacing: 3px;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.sidebar-logo .tagline {
+  font-size: 9px;
+  color: rgba(240,237,230,0.5);
+  letter-spacing: 2px;
+  margin-top: 5px;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  list-style: none;
+  width: 100%;
+  flex: 1;
+}
+
+.nav-links li a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 30px;
+  color: rgba(240,237,230,0.6);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 0.3s;
+  border-left: 3px solid transparent;
+  position: relative;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: var(--gold);
+  border-left-color: var(--gold);
+  background: rgba(200,169,126,0.08);
+  padding-left: 35px;
+}
+
+.nav-links li a .nav-icon { font-size: 16px; }
+
+.sidebar-footer {
+  text-align: center;
+  padding: 0 15px;
+  font-size: 10px;
+  color: rgba(240,237,230,0.3);
+  letter-spacing: 1px;
+}
+
+.sidebar-social {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  justify-content: center;
+}
+
+.sidebar-social a {
+  color: rgba(200,169,126,0.6);
+  font-size: 18px;
+  text-decoration: none;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.sidebar-social a:hover { color: var(--gold); transform: scale(1.2); }
+
+/* ─── MAIN CONTENT ─── */
+.main {
+  margin-left: var(--sidebar-w);
+  flex: 1;
+  min-height: 100vh;
+}
+
+/* ─── SECTIONS ─── */
+.section { display: none; min-height: 100vh; }
+.section.active { display: block; }
+
+/* ─── HOME ─── */
+#home {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 70% 50%, rgba(45,90,61,0.6) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(200,169,126,0.15) 0%, transparent 50%),
+    url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1600&q=80') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 60px 40px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(6,14,8,0.88) 0%, rgba(14,26,20,0.65) 50%, rgba(45,90,61,0.35) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 750px;
+}
+
+.hero-badge {
+  display: inline-block;
+  border: 1px solid rgba(200,169,126,0.5);
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  padding: 8px 25px;
+  margin-bottom: 30px;
+  animation: fadeInDown 0.8s ease forwards;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(42px, 7vw, 86px);
+  line-height: 1.05;
+  color: #fff;
+  margin-bottom: 10px;
+  animation: fadeInUp 0.9s ease 0.2s both;
+}
+
+.hero-title .gold { color: var(--gold); font-style: italic; }
+
+.hero-subtitle {
+  font-size: 11px;
+  letter-spacing: 6px;
+  color: rgba(240,237,230,0.7);
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  animation: fadeInUp 0.9s ease 0.35s both;
+}
+
+.hero-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  color: rgba(240,237,230,0.8);
+  max-width: 500px;
+  margin: 0 auto 40px;
+  font-weight: 300;
+  line-height: 1.7;
+  animation: fadeInUp 0.9s ease 0.5s both;
+}
+
+.hero-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+  animation: fadeInUp 0.9s ease 0.6s both;
+}
+
+.hero-dots span {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: rgba(240,237,230,0.6);
+  text-transform: uppercase;
+  padding: 0 15px;
+  border-right: 1px solid rgba(200,169,126,0.3);
+}
+.hero-dots span:last-child { border-right: none; }
+
+.btn-hero {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--gold) 0%, #a07848 100%);
+  color: var(--dark);
+  padding: 16px 45px;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+  animation: fadeInUp 0.9s ease 0.7s both;
+  text-decoration: none;
+}
+
+.btn-hero:hover {
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(200,169,126,0.4);
+}
+
+/* Features strip */
+.features-strip {
+  background: linear-gradient(90deg, var(--dark) 0%, var(--dark2) 50%, var(--dark) 100%);
+  border-top: 1px solid rgba(200,169,126,0.2);
+  border-bottom: 1px solid rgba(200,169,126,0.2);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 25px 40px;
+  border-right: 1px solid rgba(200,169,126,0.1);
+  flex: 1;
+  min-width: 200px;
+  transition: background 0.3s;
+}
+
+.feature-item:hover { background: rgba(200,169,126,0.05); }
+.feature-item:last-child { border-right: none; }
+
+.feature-icon { font-size: 28px; }
+
+.feature-text h4 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.feature-text p {
+  font-size: 11px;
+  color: rgba(240,237,230,0.5);
+  letter-spacing: 1px;
+}
+
+/* Story section */
+.story-section {
+  padding: 100px 60px;
+  background: radial-gradient(ellipse at left, rgba(200,169,126,0.05) 0%, transparent 60%);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.story-img-wrap {
+  position: relative;
+}
+
+.story-img-wrap img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 4px;
+  filter: sepia(20%) contrast(1.1);
+}
+
+.story-img-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -15px;
+  border: 1px solid rgba(200,169,126,0.3);
+  border-radius: 4px;
+  z-index: -1;
+}
+
+.story-img-wrap::after {
+  content: '"From Rwanda's Northern Province"';
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  background: var(--gold);
+  color: var(--dark);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 13px;
+  padding: 12px 20px;
+  max-width: 200px;
+}
+
+.story-text h3 {
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.story-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  line-height: 1.2;
+  margin-bottom: 25px;
+}
+
+.story-text p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px;
+  color: rgba(240,237,230,0.75);
+  line-height: 1.8;
+  margin-bottom: 15px;
+  font-weight: 300;
+}
+
+.story-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(200,169,126,0.2);
+}
+
+.stat h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: var(--gold);
+  letter-spacing: 0;
+}
+
+.stat p {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: rgba(240,237,230,0.5);
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* ─── PRODUCTS ─── */
+#products { background: var(--dark2); }
+
+.section-header {
+  text-align: center;
+  padding: 80px 40px 50px;
+}
+
+.section-header .pre-title {
+  font-size: 10px;
+  letter-spacing: 6px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.section-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.section-header p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  color: rgba(240,237,230,0.6);
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+.gold-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.gold-divider::before,
+.gold-divider::after {
+  content: '';
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+.gold-divider::after { background: linear-gradient(90deg, var(--gold), transparent); }
+.gold-divider span { color: var(--gold); font-size: 18px; }
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 0 50px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-card {
+  background: linear-gradient(145deg, #162310, #0e1a14);
+  border: 1px solid rgba(200,169,126,0.15);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: all 0.4s;
+  position: relative;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(200,169,126,0.5);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.5), 0 0 30px rgba(200,169,126,0.1);
+}
+
+.product-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--red);
+  color: #fff;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  z-index: 2;
+}
+
+.product-img-wrap {
+  background: radial-gradient(ellipse, #1e3018 0%, #0e1a14 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-img-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(200,169,126,0.08) 0%, transparent 70%);
+}
+
+.product-img-wrap img {
+  width: 160px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 4px;
+  filter: drop-shadow(0 15px 30px rgba(0,0,0,0.7));
+  position: relative;
+  z-index: 1;
+  transition: transform 0.4s;
+}
+
+.product-card:hover .product-img-wrap img {
+  transform: scale(1.05) rotate(-1deg);
+}
+
+.product-info {
+  padding: 25px;
+  border-top: 1px solid rgba(200,169,126,0.1);
+}
+
+.product-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.product-weight {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.product-features {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.product-features li {
+  font-size: 12px;
+  color: rgba(240,237,230,0.6);
+  padding: 3px 0;
+  padding-left: 15px;
+  position: relative;
+}
+
+.product-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 11px;
+}
+
+.product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.product-price span {
+  font-size: 13px;
+  color: rgba(240,237,230,0.5);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+
+.btn-order {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 10px 20px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.3s;
+}
+
+.btn-order:hover {
+  background: var(--gold);
+  color: var(--dark);
+}
+
+/* Order Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+}
+
+.modal-overlay.open { display: flex; }
+
+.modal {
+  background: var(--dark2);
+  border: 1px solid rgba(200,169,126,0.3);
+  border-radius: 8px;
+  padding: 50px;
+  max-width: 480px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  animation: modalIn 0.3s ease;
+}
+
+@keyframes modalIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px; right: 20px;
+  background: none;
+  border: none;
+  color: rgba(240,237,230,0.5);
+  font-size: 22px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.modal-close:hover { color: var(--gold); }
+
+.modal h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.modal p { color: rgba(240,237,230,0.7); font-size: 15px; margin-bottom: 30px; }
+
+.modal-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.modal-contact-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 20px;
+  border: 1px solid rgba(200,169,126,0.3);
+  background: rgba(200,169,126,0.05);
+  border-radius: 4px;
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.3s;
+}
+
+.modal-contact-btn:hover {
+  background: rgba(200,169,126,0.15);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* ─── GALLERY ─── */
+#gallery { background: var(--dark); }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 4px;
+  padding: 0 40px 80px;
+}
+
+.gallery-item {
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+.gallery-item:nth-child(4) { grid-column: span 2; }
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+  object-fit: cover;
+  transition: transform 0.6s, filter 0.4s;
+  filter: sepia(10%) brightness(0.85);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.06);
+  filter: sepia(0%) brightness(1);
+}
+
+.gallery-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8,14,10,0.8) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+}
+
+.gallery-item:hover .gallery-item-overlay { opacity: 1; }
+
+.gallery-item-overlay span {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--gold);
+}
+
+.instagram-cta {
+  text-align: center;
+  padding: 50px 40px 80px;
+}
+
+.instagram-cta p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  color: rgba(240,237,230,0.7);
+  margin-bottom: 20px;
+}
+
+.btn-instagram {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: #fff;
+  padding: 14px 35px;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn-instagram:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(45,90,61,0.4);
+}
+
+/* ─── ABOUT ─── */
+#about { background: var(--dark2); }
+
+.about-hero {
+  height: 350px;
+  background:
+    linear-gradient(rgba(8,14,10,0.75), rgba(8,14,10,0.75)),
+    url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1600&q=80') center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.about-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 60px;
+  color: var(--gold);
+}
+
+.about-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+
+.about-content .intro {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-style: italic;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 50px;
+  line-height: 1.5;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 70px;
+}
+
+.about-block h3 {
+  font-size: 10px;
+  letter-spacing: 5px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.about-block h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.about-block p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  color: rgba(240,237,230,0.7);
+  line-height: 1.8;
+}
+
+.about-values {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 60px 40px;
+  background: var(--dark);
+  border-top: 1px solid rgba(200,169,126,0.15);
+}
+
+.value-card {
+  text-align: center;
+  padding: 40px 25px;
+  border: 1px solid rgba(200,169,126,0.1);
+  transition: all 0.3s;
+}
+
+.value-card:hover {
+  border-color: rgba(200,169,126,0.4);
+  background: rgba(200,169,126,0.04);
+  transform: translateY(-5px);
+}
+
+.value-icon { font-size: 40px; margin-bottom: 15px; display: block; }
+
+.value-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.value-card p {
+  font-size: 13px;
+  color: rgba(240,237,230,0.6);
+  line-height: 1.7;
+}
+
+.contact-bar {
+  background: linear-gradient(135deg, #2d5a3d 0%, #1a4a2a 100%);
+  padding: 50px 40px;
+  text-align: center;
+}
+
+.contact-bar h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.contact-bar p {
+  font-size: 13px;
+  letter-spacing: 1px;
+  opacity: 0.8;
+  margin-bottom: 25px;
+}
+
+.contact-pills {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.contact-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-size: 13px;
+  text-decoration: none;
+  transition: all 0.3s;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.contact-pill:hover {
+  background: rgba(200,169,126,0.3);
+  border-color: var(--gold);
+}
+
+/* ─── ADMIN LOCK BUTTON ─── */
+#adminLockBtn {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(14,26,20,0.92);
+  border: 1px solid rgba(200,169,126,0.25);
+  color: rgba(200,169,126,0.45);
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  backdrop-filter: blur(6px);
+}
+#adminLockBtn:hover { border-color: var(--gold); color: var(--gold); }
+#adminLockBtn.unlocked { color: var(--gold); border-color: var(--gold); background: rgba(200,169,126,0.12); }
+
+#adminLoginModal {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.88);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+}
+#adminLoginModal.open { display: flex; }
+.admin-modal-box {
+  background: var(--dark2);
+  border: 1px solid rgba(200,169,126,0.3);
+  border-radius: 8px;
+  padding: 48px 40px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  animation: modalIn .3s ease;
+  position: relative;
+}
+.admin-modal-box h3 { font-family:'Playfair Display',serif; font-size:24px; color:var(--gold); margin-bottom:8px; }
+.admin-modal-box p { font-size:13px; color:rgba(240,237,230,0.5); margin-bottom:28px; letter-spacing:1px; }
+.admin-pin-input {
+  width: 100%;
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(200,169,126,0.25);
+  color: var(--cream);
+  font-size: 26px;
+  letter-spacing: 12px;
+  text-align: center;
+  padding: 14px;
+  border-radius: 4px;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 14px;
+  outline: none;
+  transition: border-color .2s;
+}
+.admin-pin-input:focus { border-color: var(--gold); }
+.admin-pin-input.error { border-color: var(--red2); animation: shake .3s ease; }
+.admin-err { font-size:12px; color:var(--red2); letter-spacing:1px; min-height:18px; margin-bottom:14px; }
+.btn-admin-login {
+  width:100%;
+  background:linear-gradient(135deg,var(--gold),#a07848);
+  color:var(--dark);
+  border:none; padding:14px;
+  font-size:11px; letter-spacing:4px; text-transform:uppercase; font-weight:700;
+  font-family:'Montserrat',sans-serif; cursor:pointer; border-radius:4px; transition:all .2s;
+}
+.btn-admin-login:hover { opacity:.88; }
+.btn-admin-close {
+  position:absolute; top:14px; right:18px;
+  background:none; border:none; color:rgba(240,237,230,0.35); font-size:20px; cursor:pointer; transition:color .2s;
+}
+.btn-admin-close:hover { color:var(--gold); }
+
+#galleryAdminBar {
+  display: none;
+  background: rgba(200,169,126,0.05);
+  border: 1px dashed rgba(200,169,126,0.3);
+  border-radius: 6px;
+  margin: 0 40px 32px;
+  padding: 22px 30px;
+  text-align: center;
+}
+#galleryAdminBar.show { display: block; }
+#galleryAdminBar p { font-size:11px; letter-spacing:3px; color:rgba(200,169,126,0.7); text-transform:uppercase; margin-bottom:14px; }
+.btn-upload-gallery {
+  display:inline-flex; align-items:center; gap:8px;
+  background:linear-gradient(135deg,var(--gold),#a07848);
+  color:var(--dark); border:none; padding:11px 28px;
+  font-size:10px; letter-spacing:3px; text-transform:uppercase; font-weight:700;
+  font-family:'Montserrat',sans-serif; cursor:pointer; border-radius:4px; transition:all .2s;
+}
+.btn-upload-gallery:hover { opacity:.85; transform:translateY(-1px); }
+
+#productsAdminBar {
+  display: none;
+  background: rgba(200,169,126,0.04);
+  border: 1px dashed rgba(200,169,126,0.3);
+  border-radius: 6px;
+  margin: 0 50px 40px;
+  padding: 30px;
+}
+#productsAdminBar.show { display: block; }
+#productsAdminBar h4 { font-family:'Playfair Display',serif; font-size:18px; color:var(--gold); margin-bottom:20px; text-align:center; letter-spacing:1px; }
+.product-form-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px; }
+.product-form-grid input,
+.product-form-grid select,
+#productsAdminBar textarea {
+  background:rgba(0,0,0,0.35);
+  border:1px solid rgba(200,169,126,0.2);
+  color:var(--cream); padding:11px 14px; font-size:13px;
+  font-family:'Montserrat',sans-serif; border-radius:4px; outline:none; width:100%; transition:border-color .2s;
+}
+.product-form-grid input:focus,
+.product-form-grid select:focus,
+#productsAdminBar textarea:focus { border-color:var(--gold); }
+.product-form-grid select option { background:#0e1a14; }
+.product-form-full { grid-column:span 2; }
+#productsAdminBar textarea { width:100%; resize:vertical; min-height:75px; margin-bottom:14px; }
+.prod-upload-row { display:flex; gap:12px; align-items:center; margin-bottom:20px; }
+.prod-img-preview { width:80px; height:80px; border:1px solid rgba(200,169,126,0.2); border-radius:4px; object-fit:cover; display:none; }
+.prod-img-preview.show { display:block; }
+.btn-pick-img {
+  background:rgba(200,169,126,0.1); border:1px solid rgba(200,169,126,0.3); color:var(--gold);
+  padding:10px 18px; font-size:11px; letter-spacing:2px; text-transform:uppercase;
+  font-family:'Montserrat',sans-serif; cursor:pointer; border-radius:4px; transition:all .2s;
+}
+.btn-pick-img:hover { background:rgba(200,169,126,0.18); }
+.btn-add-product {
+  width:100%; background:linear-gradient(135deg,var(--gold),#a07848); color:var(--dark); border:none;
+  padding:14px; font-size:11px; letter-spacing:4px; text-transform:uppercase; font-weight:700;
+  font-family:'Montserrat',sans-serif; cursor:pointer; border-radius:4px; transition:all .2s;
+}
+.btn-add-product:hover { opacity:.88; }
+
+.gallery-item .del-overlay {
+  position:absolute; top:8px; right:8px; width:28px; height:28px; border-radius:50%;
+  background:rgba(0,0,0,0.65); border:1px solid rgba(255,255,255,0.15); color:rgba(255,255,255,0.6);
+  font-size:12px; cursor:pointer; display:none; align-items:center; justify-content:center; z-index:10; transition:all .2s;
+}
+body.admin-on .gallery-item .del-overlay { display:flex; }
+.gallery-item .del-overlay:hover { background:rgba(180,60,60,.8); color:#fff; }
+
+.product-card .del-prod-btn {
+  position:absolute; top:8px; left:8px; width:28px; height:28px; border-radius:50%;
+  background:rgba(0,0,0,0.65); border:1px solid rgba(255,255,255,0.15); color:rgba(255,255,255,0.6);
+  font-size:12px; cursor:pointer; display:none; align-items:center; justify-content:center; z-index:10; transition:all .2s;
+}
+body.admin-on .product-card .del-prod-btn { display:flex; }
+.product-card .del-prod-btn:hover { background:rgba(180,60,60,.8); color:#fff; }
+
+#adminBadge {
+  display:none; font-size:9px; letter-spacing:2px; color:var(--gold); text-transform:uppercase;
+  border:1px solid rgba(200,169,126,0.3); padding:4px 10px; border-radius:20px; margin-top:10px;
+}
+body.admin-on #adminBadge { display:inline-block; }
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shake {
+  0%,100%{transform:translateX(0)} 25%{transform:translateX(-7px)} 75%{transform:translateX(7px)}
+}
+
+/* ─── FOOTER ─── */
+footer {
+  background: #060e08;
+  border-top: 1px solid rgba(200,169,126,0.2);
+  text-align: center;
+  padding: 30px 40px;
+  font-size: 11px;
+  color: rgba(240,237,230,0.4);
+  letter-spacing: 2px;
+}
+
+footer .gold { color: var(--gold); }
+
+/* Mobile sidebar toggle */
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 200;
+  background: var(--dark2);
+  border: 1px solid rgba(200,169,126,0.3);
+  color: var(--gold);
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .sidebar { transform: translateX(-100%); transition: transform 0.3s; }
+  .sidebar.open { transform: translateX(0); }
+  .main { margin-left: 0; }
+  .hamburger { display: flex; align-items: center; justify-content: center; }
+  .story-section { grid-template-columns: 1fr; gap: 40px; padding: 60px 25px; }
+  .products-grid { padding: 0 20px 60px; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; padding: 0 15px 60px; }
+  .gallery-item:nth-child(1) { grid-column: span 2; }
+  .gallery-item:nth-child(4) { grid-column: span 1; }
+  .about-grid { grid-template-columns: 1fr; gap: 30px; }
+  .about-values { grid-template-columns: 1fr; }
+  .hero-title { font-size: 38px; }
+  .features-strip { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- Mobile hamburger -->
+<button class="hamburger" onclick="toggleSidebar()">☰</button>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <span class="cup-icon">☕</span>
+    <h2>Attract Unity<br>Coffee</h2>
+    <div class="tagline">Northern Province · Rwanda</div>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="#" class="active" onclick="showSection('home', this)"><span class="nav-icon">🏠</span> Home</a></li>
+    <li><a href="#" onclick="showSection('gallery', this)"><span class="nav-icon">🖼</span> Gallery</a></li>
+    <li><a href="#" onclick="showSection('about', this)"><span class="nav-icon">ℹ️</span> About</a></li>
+    <li><a href="#" onclick="showSection('products', this)"><span class="nav-icon">☕</span> Products</a></li>
+  </ul>
+
+  <div class="sidebar-footer">
+    <div class="sidebar-social">
+      <a href="https://www.instagram.com/attract_unity_coffee?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" title="Instagram">📸</a>
+      <a href="tel:0780569918" title="Call us">📞</a>
+      <a href="https://wa.me/250780569918" target="_blank" title="WhatsApp">💬</a>
+    </div>
+    <div>📍 Kigali, Rwanda</div>
+    <div id="adminBadge">🔐 Admin Mode</div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- ══════════════════ HOME ══════════════════ -->
+  <section id="home" class="section active">
+
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">Est. 2025 — Rwanda's Finest</div>
+        <h1 class="hero-title">ATTRACT<br><span class="gold">Unity</span><br>COFFEE</h1>
+        <div class="hero-subtitle">Premium Coffee from Northern Province</div>
+        <p class="hero-desc">Freshly roasted, 100% Rwandan coffee beans — harvested from the misty highlands of the North, ground and packaged for the perfect cup.</p>
+        <div class="hero-dots">
+          <span>Fresh Roasted</span>
+          <span>100% Rwandan</span>
+          <span>Northern Province</span>
+        </div>
+        <a href="#" class="btn-hero" onclick="showSection('products', document.querySelector('[onclick*=products]'))">View Products</a>
+      </div>
+    </div>
+
+    <div class="features-strip">
+      <div class="feature-item">
+        <span class="feature-icon">🌱</span>
+        <div class="feature-text">
+          <h4>Single Origin</h4>
+          <p>Northern Province Highlands</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">🔥</span>
+        <div class="feature-text">
+          <h4>Freshly Roasted</h4>
+          <p>Roasted to order, every time</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">📦</span>
+        <div class="feature-text">
+          <h4>3 Package Sizes</h4>
+          <p>250g · 500g · 1kg</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">🚚</span>
+        <div class="feature-text">
+          <h4>Kigali Delivery</h4>
+          <p>Order by phone or WhatsApp</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="story-section">
+      <div class="story-img-wrap">
+        <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&q=80" alt="Coffee farm Rwanda">
+      </div>
+      <div class="story-text">
+        <h3>Our Story</h3>
+        <h2>Rooted in Rwanda's Coffee Heritage</h2>
+        <p>Attract Unity Coffee was born from a passion for Rwanda's world-class coffee. Grown on the fertile volcanic soils of the Northern Province, our beans absorb the rich minerals that give Rwandan coffee its signature brightness.</p>
+        <p>We believe great coffee starts long before the cup — it starts with the soil, the farmer, and the careful hand of the roaster.</p>
+        <div class="story-stats">
+          <div class="stat">
+            <h3>100%</h3>
+            <p>Rwandan Beans</p>
+          </div>
+          <div class="stat">
+            <h3>3</h3>
+            <p>Roast Profiles</p>
+          </div>
+          <div class="stat">
+            <h3>24h</h3>
+            <p>Fresh Guarantee</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      📍 Kigali, Rwanda &nbsp;|&nbsp; 📞 <span class="gold">0780569918 / 0723380211</span><br><br>
+      © 2026 <span class="gold">Attract Unity Coffee</span>. All Rights Reserved.
+    </footer>
+  </section>
+
+  <!-- ══════════════════ PRODUCTS ══════════════════ -->
+  <section id="products" class="section">
+    <div class="section-header">
+      <div class="pre-title">Our Collection</div>
+      <h2>Coffee Packages</h2>
+      <div class="gold-divider"><span>✦</span></div>
+      <p>Raw crashed Rwandan coffee beans, available in three roast profiles and three convenient sizes</p>
+    </div>
+
+    <!-- ADMIN ADD PRODUCT FORM - only visible when logged in as admin -->
+    <div id="productsAdminBar">
+      <h4>☕ Add New Product</h4>
+      <div class="product-form-grid">
+        <input type="text" id="pName" placeholder="Product name (e.g. Light Coffee)" />
+        <input type="text" id="pWeight" placeholder="Weight (e.g. 250g Package)" />
+        <input type="text" id="pPrice" placeholder="Price (e.g. 4,000)" />
+        <select id="pBadge">
+          <option value="Light Roast">Light Roast</option>
+          <option value="Medium Roast">Medium Roast</option>
+          <option value="Dark Roast">Dark Roast</option>
+          <option value="Best Value">Best Value</option>
+          <option value="New">New</option>
+        </select>
+        <input type="text" id="pFeat1" placeholder="Feature 1 (e.g. Bright, floral & fruity notes)" />
+        <input type="text" id="pFeat2" placeholder="Feature 2 (e.g. 100% Rwandan coffee beans)" />
+        <input type="text" id="pFeat3" placeholder="Feature 3 (e.g. Freshly roasted & crashed)" />
+        <input type="text" id="pFeat4" placeholder="Feature 4 (e.g. Sealed envelope package)" />
+        <input type="text" id="pOrderLabel" class="product-form-full" placeholder="Order label (e.g. Light Roast · 250g)" />
+      </div>
+      <div class="prod-upload-row">
+        <img class="prod-img-preview" id="prodImgPreview" src="" alt="preview" />
+        <div style="position:relative;display:inline-block;">
+          <label for="productFileInput" class="btn-pick-img" onclick="triggerProductUpload()">📷 Choose Product Image</label>
+          <input type="file" id="productFileInput" accept="image/*"
+                 style="position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;font-size:0;">
+        </div>
+        <span id="prodImgName" style="font-size:11px;color:rgba(240,237,230,0.4);letter-spacing:1px;margin-left:8px;"></span>
+      </div>
+      <button class="btn-add-product" onclick="addProduct()">＋ Add Product to Store</button>
+    </div>
+
+    <div class="products-grid" id="productsGrid">
+
+      <!-- Light Roast 250g -->
+      <div class="product-card" onclick="openOrder('Light Roast · 250g', '8,000 RWF')">
+        <div class="product-badge">Light Roast</div>
+        <div class="product-img-wrap">
+          <img src="./l250.PNG" alt="Light Coffee 250g">
+        </div>
+        <div class="product-info">
+          <h3>Light Coffee</h3>
+          <div class="product-weight">250g Package</div>
+          <ul class="product-features">
+            <li>Bright, floral & fruity notes</li>
+            <li>100% Rwandan coffee beans</li>
+            <li>Freshly roasted & crashed</li>
+            <li>Sealed envelope package</li>
+          </ul>
+          <div class="product-footer">
+            <div class="product-price">4,000 <span>RWF</span></div>
+            <button class="btn-order">Order Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Light Roast 500g -->
+      <div class="product-card" onclick="openOrder('Light Roast · 500g', '10,000 RWF')">
+        <div class="product-badge">Light Roast</div>
+        <div class="product-img-wrap">
+          <img src="./l500.PNG" alt="Light Coffee 500g">
+        </div>
+        <div class="product-info">
+          <h3>Light Coffee</h3>
+          <div class="product-weight">500g Package</div>
+          <ul class="product-features">
+            <li>Bright, floral & fruity notes</li>
+            <li>100% Rwandan coffee beans</li>
+            <li>Freshly roasted & crashed</li>
+            <li>Sealed envelope package</li>
+          </ul>
+          <div class="product-footer">
+            <div class="product-price">7,500 <span>RWF</span></div>
+            <button class="btn-order">Order Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Light Roast 1kg -->
+      <div class="product-card" onclick="openOrder('Light Roast · 1kg', '15,000 RWF')">
+        <div class="product-badge" style="background:#7a5a2a;">Best Value</div>
+        <div class="product-img-wrap">
+          <img src="./lkg.PNG" alt="Light Coffee 1kg">
+        </div>
+        <div class="product-info">
+          <h3>Light Coffee</h3>
+          <div class="product-weight">1kg Package</div>
+          <ul class="product-features">
+            <li>Bright, floral & fruity notes</li>
+            <li>100% Rwandan coffee beans</li>
+            <li>Freshly roasted & crashed</li>
+            <li>Sealed envelope package</li>
+          </ul>
+          <div class="product-footer">
+            <div class="product-price">15,000 <span>RWF</span></div>
+            <button class="btn-order">Order Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Medium Black 250g -->
+      <div class="product-card" onclick="openOrder('Medium Black · 250g', '8,000 RWF')">
+        <div class="product-badge">Medium Roast</div>
+        <div class="product-img-wrap">
+          <img src="./m250.PNG" alt="Medium Black Coffee 250g">
+        </div>
+        <div class="product-info">
+          <h3>Medium Black Coffee</h3>
+          <div class="product-weight">250g Package</div>
+          <ul class="product-features">
+            <li>Balanced, smooth & rich body</li>
+            <li>100% Rwandan coffee beans</li>
+            <li>Freshly roasted & crashed</li>
+            <li>Sealed envelope package</li>
+          </ul>
+          <div class="product-footer">
+            <div class="product-price">4,000 <span>RWF</span></div>
+            <button class="btn-order">Order Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Medium Black 500g -->
+      <div class="product-card" onclick="openOrder('Medium Black · 500g', '10,000 RWF')">
+        <div class="product-badge">Medium Roast</div>
+        <div class="product-img-wrap">
+          <img src="./m500.PNG" alt="Medium Black Coffee 500g">
+        </div>
+        <div class="product-info">
+          <h3>Medium Black Coffee</h3>
+          <div class="product-weight">500g Package</div>
+          <ul class="product-features">
+            <li>Balanced, smooth & rich body</li>
+            <li>100% Rwandan coffee beans</li>
+            <li>Freshly roasted & crashed</li>
+            <li>Sealed envelope package</li>
+          </ul>
+          <div class="product-footer">
+            <div class="product-price">7,500 <span>RWF</span></div>
+            <button class="btn-order">Order Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Medium Black 1kg -->
+      <div class="product-card" onclick="openOrder('Medium Black · 1kg', '15,000 RWF')">
+        <div class="product-badge" style="background:#7a5a2a;">Best Value</div>
+        <div class="product-img-wrap">
+          <img src="./mkg.PNG" alt="Medium Black Coffee 1kg">
+        </div>
+        <div class="product-info">
+          <h3>Medium Black Coffee</h3>
+          <div class="product-weight">1kg Package</div>
+          <ul class="product-features">
+            <li>Balanced, smooth & rich body</li>
+            <li>100% Rwandan coffee beans</li>
+            <li>Freshly roasted & crashed</li>
+            <li>Sealed envelope package</li>
+          </ul>
+          <div class="product-footer">
+            <div class="product-price">15,000 <span>RWF</span></div>
+            <button class="btn-order">Order Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dark Roast 250g -->
+      <div class="product-card" onclick="openOrder('Medium Dark · 250g', '8,000 RWF')">
+        <div class="product-badge" style="background:#1a3020;">Dark Roast</div>
+        <div class="product-img-wrap">
+          <img src="./b250.PNG" alt="Dark Coffee 250g">
+        </div>
+        <div class="product-info">
+          <h3>Dark roasted Coffee</h3>
+          <div class="product-weight">250g Package</div>
+          <ul class="product-features">
+            <li>Bold, intense & smoky depth</li>
+            <li>100% Rwandan coffee beans</li>
+            <li>Freshly roasted & crashed</li>
+            <li>Sealed envelope package</li>
+          </ul>
+          <div class="product-footer">
+            <div class="product-price">4,000 <span>RWF</span></div>
+            <button class="btn-order">Order Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dark Roast 500g -->
+      <div class="product-card" onclick="openOrder('Medium Dark · 500g', '10,000 RWF')">
+        <div class="product-badge" style="background:#1a3020;">Dark Roast</div>
+        <div class="product-img-wrap">
+          <img src="./b500.PNG" alt="Medium Dark Coffee 500g">
+        </div>
+        <div class="product-info">
+          <h3>Dark roasted Coffee</h3>
+          <div class="product-weight">500g Package</div>
+          <ul class="product-features">
+            <li>Bold, intense & smoky depth</li>
+            <li>100% Rwandan coffee beans</li>
+            <li>Freshly roasted & crashed</li>
+            <li>Sealed envelope package</li>
+          </ul>
+          <div class="product-footer">
+            <div class="product-price">7,500 <span>RWF</span></div>
+            <button class="btn-order">Order Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dark Roast 1kg -->
+      <div class="product-card" onclick="openOrder('Medium Dark · 1kg', '15,000 RWF')">
+        <div class="product-badge" style="background:#7a5a2a;">Best Value</div>
+        <div class="product-img-wrap">
+          <img src="./bkg.PNG" alt="Medium Dark Coffee 1kg">
+        </div>
+        <div class="product-info">
+          <h3>Dark roasted Coffee</h3>
+          <div class="product-weight">1kg Package</div>
+          <ul class="product-features">
+            <li>Bold, intense & smoky depth</li>
+            <li>100% Rwandan coffee beans</li>
+            <li>Freshly roasted & crashed</li>
+            <li>Sealed envelope package</li>
+          </ul>
+          <div class="product-footer">
+            <div class="product-price">15,000 <span>RWF</span></div>
+            <button class="btn-order">Order Now</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      📍 Kigali, Rwanda &nbsp;|&nbsp; 📞 <span class="gold">0780569918 / 0723380211</span><br><br>
+      © 2026 <span class="gold">Attract Unity Coffee</span>. All Rights Reserved.
+    </footer>
+  </section>
+
+  <!-- ══════════════════ GALLERY ══════════════════ -->
+  <section id="gallery" class="section">
+    <div class="section-header">
+      <div class="pre-title">Visual Story</div>
+      <h2>Gallery</h2>
+      <div class="gold-divider"><span>✦</span></div>
+      <p>A glimpse into Rwanda's finest coffee — from the fields to your cup</p>
+    </div>
+
+    <!-- ADMIN UPLOAD BAR - only visible when logged in as admin -->
+    <div id="galleryAdminBar">
+      <p>📸 Admin — Add photos to gallery</p>
+      <div style="position:relative;display:inline-block;">
+        <label for="galleryFileInput" class="btn-upload-gallery" onclick="triggerGalleryUpload()">＋ Upload Photos</label>
+        <input type="file" id="galleryFileInput" multiple accept="image/*"
+               style="position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;font-size:0;">
+      </div>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item" data-id="s1">
+        <img src="attract.PNG" alt="Coffee beans" style="width:100%;height:100%;min-height:250px;object-fit:cover;display:block;">
+        <div class="gallery-item-overlay"><span>attract unity coffee barista</span></div>
+        <button class="del-overlay" onclick="deleteStaticGalleryItem(this)">✕</button>
+      </div>
+      <div class="gallery-item" data-id="s2">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80" alt="Coffee cup" style="width:100%;height:100%;min-height:250px;object-fit:cover;display:block;">
+        <div class="gallery-item-overlay"><span>The Perfect Brew</span></div>
+        <button class="del-overlay" onclick="deleteStaticGalleryItem(this)">✕</button>
+      </div>
+      <div class="gallery-item" data-id="s3">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80" alt="Coffee roasting" style="width:100%;height:100%;min-height:250px;object-fit:cover;display:block;">
+        <div class="gallery-item-overlay"><span>The Roasting Process</span></div>
+        <button class="del-overlay" onclick="deleteStaticGalleryItem(this)">✕</button>
+      </div>
+      <div class="gallery-item" data-id="s4">
+        <img src="2.PNG" alt="Coffee farm" style="width:100%;height:100%;min-height:250px;object-fit:cover;display:block;">
+        <div class="gallery-item-overlay"><span>Rwanda's Coffee Farms</span></div>
+        <button class="del-overlay" onclick="deleteStaticGalleryItem(this)">✕</button>
+      </div>
+      <div class="gallery-item" data-id="s5">
+        <img src="Capture.PNG" style="width:100%;height:100%;min-height:250px;object-fit:cover;display:block;">
+        <div class="gallery-item-overlay"><span>Barista</span></div>
+        <button class="del-overlay" onclick="deleteStaticGalleryItem(this)">✕</button>
+      </div>
+      <div class="gallery-item" data-id="s6">
+        <img src="https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=600&q=80" alt="Coffee packaging" style="width:100%;height:100%;min-height:250px;object-fit:cover;display:block;">
+        <div class="gallery-item-overlay"><span>Sealed Freshness</span></div>
+        <button class="del-overlay" onclick="deleteStaticGalleryItem(this)">✕</button>
+      </div>
+    </div>
+
+    <div class="instagram-cta">
+      <p>Follow us on Instagram for daily coffee moments and updates</p>
+      <a href="https://www.instagram.com/attract_unity_coffee?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="btn-instagram">
+        📸 @attract_unity_coffee
+      </a>
+    </div>
+
+    <footer>
+      📍 Kigali, Rwanda &nbsp;|&nbsp; 📞 <span class="gold">0780569918 / 0723380211 kacyiru near army shop</span><br><br>
+      © 2026 <span class="gold">Attract Unity Coffee</span>. All Rights Reserved.
+    </footer>
+  </section>
+
+  <!-- ══════════════════ ABOUT ══════════════════ -->
+  <section id="about" class="section">
+    <div class="about-hero">
+      <h1>About Us</h1>
+    </div>
+
+    <div class="about-content">
+      <p class="intro">"We don't just sell coffee — we share a piece of Rwanda's soul, one package at a time."</p>
+
+      <div class="about-grid">
+        <div class="about-block">
+          <h3>Who We Are</h3>
+          <h2>Born in the Heart of Rwanda</h2>
+          <p>Attract Unity Coffee is a Rwandan coffee brand dedicated to bringing the finest quality coffee from the Northern Province directly to your home. Our beans are sourced from local farmers who tend their crops with generational knowledge and love.</p>
+        </div>
+        <div class="about-block">
+          <h3>Our Mission</h3>
+          <h2>Quality, Unity, Community</h2>
+          <p>We believe that great coffee connects people. Our name — Attract Unity — reflects our commitment to bringing people together through the shared experience of an exceptional cup. We support local farmers and celebrate Rwanda's rich coffee culture.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-values">
+      <div class="value-card">
+        <span class="value-icon">🌿</span>
+        <h3>Natural Quality</h3>
+        <p>No additives, no shortcuts. Just pure, naturally processed Rwandan coffee beans from volcanic highlands.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-icon">🤝</span>
+        <h3>Community First</h3>
+        <p>We work directly with Northern Province farmers, ensuring fair prices and sustainable livelihoods.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-icon">🔥</span>
+        <h3>Fresh Always</h3>
+        <p>Every package is roasted fresh and sealed immediately — because you deserve coffee at its peak.</p>
+      </div>
+    </div>
+
+    <div class="contact-bar">
+      <h3>Get In Touch</h3>
+      <p>📍 Based in Kigali, Rwanda — we deliver across the city</p>
+      <div class="contact-pills">
+        <a href="tel:0780569918" class="contact-pill">📞 0780569918</a>
+        <a href="tel:0723380211" class="contact-pill">📞 0723380211</a>
+        <a href="https://wa.me/250780569918" target="_blank" class="contact-pill">💬 WhatsApp</a>
+        <a href="https://www.instagram.com/attract_unity_coffee?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="contact-pill">📸 Instagram</a>
+      </div>
+    </div>
+
+    <footer>
+      📍 Kigali, Rwanda &nbsp;|&nbsp; 📞 <span class="gold">0780569918 / 0723380211</span><br><br>
+      © 2026 <span class="gold">Attract Unity Coffee</span>. All Rights Reserved.
+    </footer>
+  </section>
+
+</main>
+
+<!-- ORDER MODAL -->
+<div class="modal-overlay" id="orderModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeOrder()">✕</button>
+    <div style="font-size:40px;margin-bottom:15px;">☕</div>
+    <h3 id="modalProduct">Product Name</h3>
+    <p id="modalPrice" style="font-size:22px;color:#c8a97e;font-family:'Playfair Display',serif;margin-bottom:8px;"></p>
+    <p>To place your order, reach us via phone or WhatsApp:</p>
+    <div class="modal-contacts">
+      <a href="tel:0780569918" class="modal-contact-btn">📞 Call: 0780569918</a>
+      <a href="tel:0723380211" class="modal-contact-btn">📞 Call: 0723380211</a>
+      <a href="https://wa.me/250780569918" target="_blank" class="modal-contact-btn">💬 WhatsApp: 0780569918</a>
+    </div>
+    <div style="font-size:11px;color:rgba(240,237,230,0.4);letter-spacing:2px;">📍 KIGALI DELIVERY AVAILABLE</div>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════════════════
+//  STORAGE HELPERS
+// ══════════════════════════════════════════════════════
+const STORE_GALLERY  = 'auc_gallery_v2';
+const STORE_PRODUCTS = 'auc_products_v2';
+const STORE_HIDDEN   = 'auc_hidden_v2';
+
+function loadStore(key) {
+  try { return JSON.parse(localStorage.getItem(key)) || []; }
+  catch(e) { return []; }
+}
+function saveStore(key, data) {
+  try {
+    localStorage.setItem(key, JSON.stringify(data));
+    return true;
+  } catch(e) {
+    showToast('⚠️ Storage full — image too large, try a smaller one');
+    return false;
+  }
+}
+
+// ══════════════════════════════════════════════════════
+//  NAVIGATION
+// ══════════════════════════════════════════════════════
+function showSection(id, el) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  if (el) el.classList.add('active');
+  window.scrollTo(0, 0);
+  if (window.innerWidth <= 768) document.getElementById('sidebar').classList.remove('open');
+  return false;
+}
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', e => e.preventDefault());
+});
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+
+// ── Order Modal ──
+function openOrder(product, price) {
+  document.getElementById('modalProduct').textContent = product;
+  document.getElementById('modalPrice').textContent = price;
+  document.getElementById('orderModal').classList.add('open');
+}
+function closeOrder() {
+  document.getElementById('orderModal').classList.remove('open');
+}
+document.getElementById('orderModal').addEventListener('click', function(e) {
+  if (e.target === this) closeOrder();
+});
+
+// ── Hero button ──
+document.querySelector('.btn-hero').addEventListener('click', function(e) {
+  e.preventDefault();
+  showSection('products', null);
+  document.querySelectorAll('.nav-links li').forEach(li => {
+    const a = li.querySelector('a');
+    if (a && a.textContent.includes('Products')) a.classList.add('active');
+  });
+});
+
+// ══════════════════════════════════════════════════════
+//  ADMIN
+// ══════════════════════════════════════════════════════
+const ADMIN_PASS = '20221';
+let isAdmin = false;
+
+function openAdminLogin() {
+  if (isAdmin) { logoutAdmin(); return; }
+  document.getElementById('adminLoginModal').classList.add('open');
+  setTimeout(() => document.getElementById('adminPinInput').focus(), 200);
+}
+function closeAdminLogin() {
+  document.getElementById('adminLoginModal').classList.remove('open');
+  document.getElementById('adminPinInput').value = '';
+  document.getElementById('adminErr').textContent = '';
+}
+function attemptLogin() {
+  const val = document.getElementById('adminPinInput').value.trim();
+  if (val === ADMIN_PASS) {
+    isAdmin = true;
+    closeAdminLogin();
+    activateAdminMode();
+  } else {
+    const inp = document.getElementById('adminPinInput');
+    inp.classList.add('error');
+    document.getElementById('adminErr').textContent = 'Incorrect password.';
+    setTimeout(() => { inp.classList.remove('error'); }, 500);
+    inp.value = '';
+    inp.focus();
+  }
+}
+function activateAdminMode() {
+  document.body.classList.add('admin-on');
+  const btn = document.getElementById('adminLockBtn');
+  btn.classList.add('unlocked');
+  btn.title = 'Admin On — tap to logout';
+  btn.textContent = '🔓';
+  document.getElementById('galleryAdminBar').classList.add('show');
+  document.getElementById('productsAdminBar').classList.add('show');
+  showToast('🔐 Admin mode — you can now upload');
+}
+function logoutAdmin() {
+  isAdmin = false;
+  document.body.classList.remove('admin-on');
+  const btn = document.getElementById('adminLockBtn');
+  btn.classList.remove('unlocked');
+  btn.title = 'Admin login';
+  btn.textContent = '🔒';
+  document.getElementById('galleryAdminBar').classList.remove('show');
+  document.getElementById('productsAdminBar').classList.remove('show');
+  showToast('🔒 Logged out');
+}
+document.getElementById('adminPinInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') attemptLogin();
+});
+document.getElementById('adminLoginModal').addEventListener('click', function(e) {
+  if (e.target === this) closeAdminLogin();
+});
+
+// ══════════════════════════════════════════════════════
+//  IMAGE COMPRESSOR
+//  Shrinks image to max width before saving to storage
+// ══════════════════════════════════════════════════════
+function compressImage(dataUrl, maxW, quality, cb) {
+  const img = new Image();
+  img.onload = function() {
+    let w = img.width, h = img.height;
+    if (w > maxW) { h = Math.round(h * maxW / w); w = maxW; }
+    const c = document.createElement('canvas');
+    c.width = w; c.height = h;
+    c.getContext('2d').drawImage(img, 0, 0, w, h);
+    cb(c.toDataURL('image/jpeg', quality));
+  };
+  img.onerror = function() { cb(dataUrl); }; // fallback: use original
+  img.src = dataUrl;
+}
+
+// ══════════════════════════════════════════════════════
+//  GALLERY UPLOAD
+// ══════════════════════════════════════════════════════
+
+// Fallback direct trigger in case label click is blocked
+function triggerGalleryUpload() {
+  document.getElementById('galleryFileInput').click();
+}
+function triggerProductUpload() {
+  document.getElementById('productFileInput').click();
+}
+
+document.getElementById('galleryFileInput').addEventListener('change', function() {
+  const files = Array.from(this.files).filter(f => f.type.startsWith('image/'));
+  if (!files.length) { showToast('⚠️ No image files selected'); return; }
+
+  showToast('⏳ Uploading ' + files.length + ' photo' + (files.length > 1 ? 's' : '') + '...');
+  let done = 0;
+
+  files.forEach(file => {
+    const reader = new FileReader();
+    reader.onload = ev => {
+      compressImage(ev.target.result, 1100, 0.80, compressed => {
+        const id  = 'g' + Date.now() + Math.random().toString(36).slice(2, 6);
+        const cap = file.name.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ');
+        const item = { id, src: compressed, caption: cap };
+
+        const list = loadStore(STORE_GALLERY);
+        list.push(item);
+        if (saveStore(STORE_GALLERY, list)) {
+          renderGalleryItem(item);
+        }
+        done++;
+        if (done === files.length)
+          showToast('✅ ' + done + ' photo' + (done > 1 ? 's' : '') + ' saved permanently!');
+      });
+    };
+    reader.onerror = () => { done++; showToast('❌ Could not read ' + file.name); };
+    reader.readAsDataURL(file);
+  });
+
+  this.value = ''; // reset so same file can be re-selected
+});
+
+function renderGalleryItem(item) {
+  const grid = document.getElementById('galleryGrid');
+  const div  = document.createElement('div');
+  div.className  = 'gallery-item';
+  div.dataset.id = item.id;
+  div.innerHTML  = `
+    <img src="${item.src}" alt="${escHtml(item.caption)}"
+         style="width:100%;height:100%;min-height:250px;object-fit:cover;display:block;">
+    <div class="gallery-item-overlay"><span>${escHtml(item.caption)}</span></div>
+    <button class="del-overlay" onclick="deleteGalleryItem('${item.id}')">✕</button>`;
+  grid.appendChild(div);
+}
+
+function loadGallery() {
+  loadStore(STORE_GALLERY).forEach(renderGalleryItem);
+}
+
+function deleteGalleryItem(id) {
+  const el = document.querySelector(`.gallery-item[data-id="${id}"]`);
+  if (el) el.remove();
+  saveStore(STORE_GALLERY, loadStore(STORE_GALLERY).filter(i => i.id !== id));
+  showToast('🗑️ Photo removed permanently');
+}
+
+// ── Delete built-in (static) gallery photos ──
+const STATIC_IDS = ['s1','s2','s3','s4','s5','s6'];
+
+function deleteStaticGalleryItem(btn) {
+  const el = btn.closest('.gallery-item');
+  const id = el.dataset.id;
+  el.remove();
+  const hidden = loadStore(STORE_HIDDEN);
+  if (!hidden.includes(id)) { hidden.push(id); saveStore(STORE_HIDDEN, hidden); }
+  showToast('🗑️ Photo removed permanently');
+}
+function applyHiddenStatic() {
+  loadStore(STORE_HIDDEN).forEach(id => {
+    const el = document.querySelector(`.gallery-item[data-id="${id}"]`);
+    if (el) el.remove();
+  });
+}
+
+// ══════════════════════════════════════════════════════
+//  PRODUCT UPLOAD
+// ══════════════════════════════════════════════════════
+let productImgData = '';
+
+document.getElementById('productFileInput').addEventListener('change', function() {
+  const file = this.files[0];
+  if (!file || !file.type.startsWith('image/')) { showToast('⚠️ Please select an image file'); return; }
+
+  const reader = new FileReader();
+  reader.onload = ev => {
+    compressImage(ev.target.result, 600, 0.85, compressed => {
+      productImgData = compressed;
+      const prev = document.getElementById('prodImgPreview');
+      prev.src = compressed;
+      prev.classList.add('show');
+      document.getElementById('prodImgName').textContent = '✓ ' + file.name;
+      showToast('✅ Image ready');
+    });
+  };
+  reader.onerror = () => showToast('❌ Could not read image');
+  reader.readAsDataURL(file);
+  this.value = '';
+});
+
+function addProduct() {
+  const get = id => document.getElementById(id).value.trim();
+  const name  = get('pName');
+  const price = get('pPrice');
+  if (!name)         { showToast('⚠️ Product name is required'); return; }
+  if (!price)        { showToast('⚠️ Price is required'); return; }
+  if (!productImgData) { showToast('⚠️ Please choose a product image'); return; }
+
+  const p = {
+    id:       'p' + Date.now() + Math.random().toString(36).slice(2, 6),
+    name,
+    weight:   get('pWeight'),
+    price,
+    badge:    document.getElementById('pBadge').value,
+    label:    get('pOrderLabel') || (name + (get('pWeight') ? ' · ' + get('pWeight') : '')),
+    features: [get('pFeat1'), get('pFeat2'), get('pFeat3'), get('pFeat4')].filter(Boolean),
+    src:      productImgData
+  };
+
+  const list = loadStore(STORE_PRODUCTS);
+  list.push(p);
+  if (saveStore(STORE_PRODUCTS, list)) {
+    renderProductCard(p);
+    // reset form
+    ['pName','pWeight','pPrice','pFeat1','pFeat2','pFeat3','pFeat4','pOrderLabel']
+      .forEach(id => { document.getElementById(id).value = ''; });
+    productImgData = '';
+    document.getElementById('prodImgPreview').classList.remove('show');
+    document.getElementById('prodImgName').textContent = '';
+    showToast('☕ Product saved permanently!');
+  }
+}
+
+function renderProductCard(p) {
+  const colors = { 'Light Roast':'#4a7a5a','Medium Roast':'#2d5a3d','Dark Roast':'#162310','Best Value':'#7a5a2a','New':'#1a4a6a' };
+  const bg   = colors[p.badge] || '#2d5a3d';
+  const feats = (p.features||[]).map(f => `<li>${escHtml(f)}</li>`).join('');
+  const card = document.createElement('div');
+  card.className  = 'product-card';
+  card.dataset.id = p.id;
+  card.style.position = 'relative';
+  card.setAttribute('onclick', `openOrder('${escHtml(p.label)}','${escHtml(p.price)} RWF')`);
+  card.innerHTML = `
+    <div class="product-badge" style="background:${bg}">${escHtml(p.badge)}</div>
+    <div class="product-img-wrap">
+      <img src="${p.src}" alt="${escHtml(p.name)}"
+           style="width:160px;height:220px;object-fit:cover;border-radius:4px;">
+    </div>
+    <div class="product-info">
+      <h3>${escHtml(p.name)}</h3>
+      <div class="product-weight">${escHtml(p.weight)}</div>
+      <ul class="product-features">${feats}</ul>
+      <div class="product-footer">
+        <div class="product-price">${escHtml(p.price)} <span>RWF</span></div>
+        <button class="btn-order"
+          onclick="event.stopPropagation();openOrder('${escHtml(p.label)}','${escHtml(p.price)} RWF')">
+          Order Now
+        </button>
+      </div>
+    </div>
+    <button class="del-prod-btn"
+      onclick="event.stopPropagation();deleteProduct('${p.id}')">✕</button>`;
+  document.getElementById('productsGrid').appendChild(card);
+}
+
+function loadProducts() {
+  loadStore(STORE_PRODUCTS).forEach(renderProductCard);
+}
+
+function deleteProduct(id) {
+  const el = document.querySelector(`.product-card[data-id="${id}"]`);
+  if (el) el.remove();
+  saveStore(STORE_PRODUCTS, loadStore(STORE_PRODUCTS).filter(p => p.id !== id));
+  showToast('🗑️ Product removed permanently');
+}
+
+// ══════════════════════════════════════════════════════
+//  TOAST
+// ══════════════════════════════════════════════════════
+let _toastTimer;
+function showToast(msg) {
+  let t = document.getElementById('siteToast');
+  if (!t) {
+    t = document.createElement('div');
+    t.id = 'siteToast';
+    t.style.cssText = [
+      'position:fixed','bottom:76px','left:50%',
+      'transform:translateX(-50%) translateY(80px)',
+      'background:#162310','border:1px solid rgba(200,169,126,0.4)',
+      'color:#f0ede6','padding:12px 26px','border-radius:50px',
+      'font-size:13px','font-family:Montserrat,sans-serif',
+      'letter-spacing:.4px','z-index:3000',
+      'transition:transform .4s cubic-bezier(.34,1.56,.64,1)',
+      'white-space:nowrap','pointer-events:none',
+      'box-shadow:0 8px 30px rgba(0,0,0,.7)'
+    ].join(';');
+    document.body.appendChild(t);
+  }
+  t.textContent = msg;
+  t.style.transform = 'translateX(-50%) translateY(0)';
+  clearTimeout(_toastTimer);
+  _toastTimer = setTimeout(() => {
+    t.style.transform = 'translateX(-50%) translateY(80px)';
+  }, 3000);
+}
+
+// ══════════════════════════════════════════════════════
+//  HELPERS
+// ══════════════════════════════════════════════════════
+function escHtml(s) {
+  return String(s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;')
+    .replace(/'/g,'&#39;');
+}
+
+// ══════════════════════════════════════════════════════
+//  INIT — runs on every page load
+// ══════════════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', function() {
+  applyHiddenStatic(); // hide deleted static gallery photos
+  loadGallery();       // load admin-uploaded gallery photos
+  loadProducts();      // load admin-uploaded products
+});
+</script>
+
+<!-- ADMIN LOCK BUTTON (bottom-right corner, subtle) -->
+<button id="adminLockBtn" onclick="openAdminLogin()" title="Admin login">🔒</button>
+
+<!-- ADMIN LOGIN MODAL -->
+<div id="adminLoginModal">
+  <div class="admin-modal-box">
+    <button class="btn-admin-close" onclick="closeAdminLogin()">✕</button>
+    <div style="font-size:36px;margin-bottom:12px;">🔐</div>
+    <h3>Admin Access</h3>
+    <p>Enter your password to manage content</p>
+    <input class="admin-pin-input" id="adminPinInput" type="password" maxlength="10" placeholder="·····" autocomplete="off" />
+    <div class="admin-err" id="adminErr"></div>
+    <button class="btn-admin-login" onclick="attemptLogin()">Unlock</button>
+  </div>
+</div>
+
+</body>
+</html>
+
